@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Básico de Productos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Gestión de Productos</h1>
+            <p class="subtitle">CRUD Básico con HTML, CSS, JavaScript y Node.js</p>
+        </header>
+
+        <!-- Mensaje de notificación / alerta -->
+        <div id="alert-box" class="alert-box hidden"></div>
+
+        <main class="main-layout">
+            <!-- Formulario para Crear / Editar -->
+            <section class="card form-section">
+                <h2 id="form-title">Agregar Producto</h2>
+                <form id="product-form">
+                    <input type="hidden" id="product-id">
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre del producto *</label>
+                        <input type="text" id="nombre" placeholder="Ej. Monitor 24 pulgadas" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="precio">Precio ($) *</label>
+                        <input type="number" id="precio" step="0.01" min="0" placeholder="Ej. 199.99" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descripcion">Descripción</label>
+                        <textarea id="descripcion" rows="3" placeholder="Detalles o características del producto..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="btn-submit" class="btn btn-primary">Guardar Producto</button>
+                        <button type="button" id="btn-cancel" class="btn btn-secondary hidden">Cancelar</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Lista de Productos -->
+            <section class="card list-section">
+                <div class="list-header">
+                    <h2>Lista de Productos</h2>
+                    <button id="btn-refresh" class="btn btn-outline" title="Recargar lista">🔄 Actualizar</button>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Descripción</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-tbody">
+                            <tr>
+                                <td colspan="5" class="text-center text-muted">Cargando productos...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
